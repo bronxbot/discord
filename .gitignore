@@ -1,0 +1,69 @@
+# Build & Cache
+build/
+build_debian/
+.cache/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+*.cmake
+cmake_pch*
+*.o
+*.a
+*.so*
+discord-bot
+
+# Environment & Dependencies
+.env
+site/node_modules/
+DPP/
+DPP.worktrees/
+third_party/
+
+# IDE & Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs & Temporary
+*.log
+logs/
+data/
+scratch_all_docs.txt
+events_forward_decls.txt
+*.backup
+
+# VPS & Deployment (Exclude from public repo)
+*.service
+*.conf
+deploy_*.sh
+
+# Redundant Docs & Temporary Scripts
+COMMAND_*.md
+GAMBLING_*.md
+OPTIMIZATION_ACTION_PLAN.md
+aspiration.md
+accurate_split.py
+events_extract.py
+extract.py
+split_events*.py
+/site/
+fish_emojis/
+.github/prompts/
+.aider*
+*.bak
+*.md
+build_local/
+build_container/
+node_modules/
+bin/
+site-react/dist/
+fish_balance
+fish_balance_test
+.claude/
+.agents/
+.env.*
+!.env.example
+*.tar.gz
+*.py

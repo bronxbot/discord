@@ -1,0 +1,38 @@
+#pragma once
+#include "command.h"
+#include "games/blacktea.h"
+#include "games/tictactoe.h"
+#include "games/react.h"
+#include "games/heist.h"
+#include "games/whitetea.h"
+#include "games/trivia.h"
+#include "database/core/database.h"
+#include <dpp/dpp.h>
+#include <vector>
+
+using namespace bronx::db;
+
+namespace commands {
+
+inline ::std::vector<Command*> get_games_commands(Database* db) {
+    ::std::vector<Command*> cmds;
+    cmds.push_back(games::get_blacktea_command());
+    cmds.push_back(games::get_whitetea_command());
+    cmds.push_back(games::get_tictactoe_command(db));
+    cmds.push_back(games::get_react_command(db));
+    cmds.push_back(games::get_vaultheist_command(db));
+    cmds.push_back(games::get_trivia_command(db));
+    return cmds;
+}
+
+// Register message/reaction handlers for games
+inline void register_games_handlers(dpp::cluster& bot, Database* db) {
+    games::register_blacktea_handlers(bot);
+    games::register_whitetea_handlers(bot);
+    games::register_tictactoe_handlers(bot, db);
+    games::register_react_handlers(bot, db);
+    games::register_heist_handlers(bot, db);
+    games::register_trivia_handlers(bot, db);
+}
+
+} // namespace commands

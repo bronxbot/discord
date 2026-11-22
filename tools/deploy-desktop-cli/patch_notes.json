@@ -1,0 +1,80 @@
+[
+  {
+    "version": "2.0.6",
+    "date": "2026-06-26",
+    "title": "remediation and style alignment",
+    "fixes": [
+      "normalized user-facing presence status configurations, options, and guides to be entirely lowercase.",
+      "standardized jackpot embed titles, progressive rewards, headers, and announcements to follow lowercase rules.",
+      "lowercased rebirth command guide, requirements, items, and resetting logs.",
+      "standardized jackpot and rebirth colors to bronx::COLOR_WARNING pastel constant instead of raw 0xFFD700."
+    ]
+  },
+  {
+    "version": "2.0.5",
+    "date": "2026-06-26",
+    "title": "virtual stock market",
+    "fixes": [
+      "added /market command (aliases: stocks, stock, shares, portfolio) for a fictional in-bot stock exchange.",
+      "implemented buy, sell, view, portfolio, and history subcommands with sparkline price charts.",
+      "stock prices fluctuate hourly with momentum, random delta, and 5% chance of bull run (+15-30%) or crash (-15-30%) events.",
+      "seeded 5 default companies (brnx, fish, mine, bjhd, amco) with distinct base prices.",
+      "renamed old /market server role shop to /smarket to free up the command namespace.",
+      "stock trades are tracked for daily challenge progress (stocks_traded stat).",
+      "portfolio view color-codes by net return: green for profit, red for loss.",
+      "integrated nlohmann_json dependency directly via CMake FetchContent to resolve compilation failures on environments lacking the library."
+    ]
+  },
+
+  {
+    "version": "2.0.4",
+    "date": "2026-06-26",
+    "title": "gear forging & socketing passive utility",
+    "fixes": [
+      "implemented pickaxe and fishing rod gem forging and socketing under /forge.",
+      "integrated mining passive gem socket boosts for ruby, sapphire, emerald, diamond, topaz, and amethyst.",
+      "integrated fishing passive gem socket boosts for cooldowns, luck modifiers, crit multiplier, sell multipliers, and double catch."
+    ]
+  },
+  {
+    "version": "2.0.3",
+    "date": "2026-06-26",
+    "title": "fish command style normalization",
+    "fixes": [
+      "standardized user-facing messages in fish.cpp to follow the lowercase branding guidelines.",
+      "replaced raw hex code 0xFFD700 in fish.cpp with bronx::COLOR_WARNING pastel constant.",
+      "integrated variety and attempt daily challenge hooks for fishing logs."
+    ]
+  },
+  {
+    "version": "2.0.2",
+    "date": "2026-06-26",
+    "title": "deployment TUI patch notes integration",
+    "fixes": [
+      "added patch notes navigation tab to the deployment CLI console.",
+      "implemented scrolling through patch history using the w and s keys.",
+      "added json conflict checking and validation with a reload overlay in case of merge conflicts."
+    ]
+  },
+  {
+    "version": "2.0.1",
+    "date": "2026-06-26",
+    "title": "remediation & performance optimizations",
+    "fixes": [
+      "offloaded last.fm commands (fm, ta, tt) key checks and api queries to background threads.",
+      "offloaded database-heavy mine command handler (do_mine) to detached background threads.",
+      "integrated daily challenge tracking hooks for wins, attempts, and variety across games.",
+      "removed block comments styling violations across utility commands."
+    ]
+  },
+  {
+    "version": "2.0.0",
+    "date": "2026-06-25",
+    "title": "deploy desktop TUI split pane",
+    "fixes": [
+      "added side-by-side split log views for widescreen terminals.",
+      "implemented hjkl key navigation for earlier log window in pop-out view.",
+      "improved auto-scroll indicators and UI safeguards during tab switching."
+    ]
+  }
+]

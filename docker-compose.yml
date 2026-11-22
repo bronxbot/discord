@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  discord-bot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: bronx-discord:latest
+    container_name: bronx-discord
+    restart: always
+    env_file:
+      - .env
+    environment:
+      - BOT_TOKEN=${BOT_TOKEN}
+      - SHARD_COUNT=${SHARD_COUNT:-1}
+    volumes:
+      - ./data:/app/data:z
+    network_mode: host
+    # If you want to use the TUI, run with: docker-compose run --rm discord-bot
+    # For production background run: docker-compose up -d
+    command: ["--no-tui"]
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10mb"
+        max-file: "3"
+    depends_on:
+      - db
+
+  db:
+    image: mariadb:11
+    container_name: bpp-db
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: bronx2026_root
+      MARIADB_DATABASE: bronxbot
+      MARIADB_USER: bronxbot
+      MARIADB_PASSWORD: bronx2026_secure
+    ports:
+      - "3307:3306"
+    volumes:
+      - bpp-db-data:/var/lib/mysql
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+
+volumes:
+  bpp-db-data:
